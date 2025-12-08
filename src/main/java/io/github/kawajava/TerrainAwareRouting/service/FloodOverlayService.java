@@ -28,7 +28,7 @@ public class FloodOverlayService {
     @Value("${app.flood.backend-url}")
     private String floodBackendUrl;
 
-    private List<Polygon> floodZones; // Cache to avoid repeated HTTP calls
+    private List<Polygon> floodZones;
 
 
     public void loadFloodZones() {
