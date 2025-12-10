@@ -27,8 +27,8 @@ public class SafeDijkstraPathFinderTest {
 
     @Test
     void shouldBuildAdjacencyMapCorrectly() {
-        Coordinate a = new Coordinate(0, 0);
-        Coordinate b = new Coordinate(1, 0);
+        var a = new Coordinate(0, 0);
+        var b = new Coordinate(1, 0);
 
         List<RoadSegment> segments = Arrays.asList(
                 safeSegment("s1", a, b, 1.0),
@@ -44,7 +44,7 @@ public class SafeDijkstraPathFinderTest {
 
     @Test
     void shouldInitializeDistanceMapCorrectly() {
-        Coordinate start = new Coordinate(5, 5);
+        var start = new Coordinate(5, 5);
         Map<Coordinate, Double> dist = finder.initializeDistanceMap(start);
 
         assertThat(dist).containsEntry(start, 0.0);
@@ -53,8 +53,8 @@ public class SafeDijkstraPathFinderTest {
 
     @Test
     void shouldExtractCoordinateCorrectly() {
-        Coordinate a = new Coordinate(0, 0);
-        Coordinate b = new Coordinate(1, 1);
+        var a = new Coordinate(0, 0);
+        var b = new Coordinate(1, 1);
 
         RoadSegment seg = safeSegment("s1", a, b, 1.0);
 
@@ -64,8 +64,8 @@ public class SafeDijkstraPathFinderTest {
 
     @Test
     void shouldExtractNeighborCorrectly() {
-        Coordinate a = new Coordinate(0, 0);
-        Coordinate b = new Coordinate(1, 1);
+        var a = new Coordinate(0, 0);
+        var b = new Coordinate(1, 1);
 
         RoadSegment seg = safeSegment("s1", a, b, 1.0);
 
@@ -74,8 +74,8 @@ public class SafeDijkstraPathFinderTest {
 
     @Test
     void shouldRelaxEdgesCorrectly() {
-        Coordinate a = new Coordinate(0, 0);
-        Coordinate b = new Coordinate(1, 0);
+        var a = new Coordinate(0, 0);
+        var b = new Coordinate(1, 0);
 
         RoadSegment seg = safeSegment("s1", a, b, 2.0);
 
@@ -98,9 +98,9 @@ public class SafeDijkstraPathFinderTest {
 
     @Test
     void shouldReconstructPathCorrectly() {
-        Coordinate a = new Coordinate(0, 0);
-        Coordinate b = new Coordinate(1, 0);
-        Coordinate c = new Coordinate(2, 0);
+        var a = new Coordinate(0, 0);
+        var b = new Coordinate(1, 0);
+        var c = new Coordinate(2, 0);
 
         Map<Coordinate, Coordinate> prev = new HashMap<>();
         prev.put(c, b);
@@ -113,8 +113,8 @@ public class SafeDijkstraPathFinderTest {
 
     @Test
     void shouldReturnEmptyPathWhenNoPathExists() {
-        Coordinate a = new Coordinate(0, 0);
-        Coordinate b = new Coordinate(1, 0);
+        var a = new Coordinate(0, 0);
+        var b = new Coordinate(1, 0);
 
         Map<Coordinate, Coordinate> prev = new HashMap<>();
 
@@ -125,9 +125,9 @@ public class SafeDijkstraPathFinderTest {
 
     @Test
     void shouldFindPathCorrectly() {
-        Coordinate a = new Coordinate(0, 0);
-        Coordinate b = new Coordinate(1, 0);
-        Coordinate c = new Coordinate(2, 0);
+        var a = new Coordinate(0, 0);
+        var b = new Coordinate(1, 0);
+        var c = new Coordinate(2, 0);
 
         List<RoadSegment> segments = Arrays.asList(
                 safeSegment("s1", a, b, 1),
@@ -141,8 +141,8 @@ public class SafeDijkstraPathFinderTest {
 
     @Test
     void shouldAvoidFloodedSegmentsCorrectly() {
-        Coordinate a = new Coordinate(0, 0);
-        Coordinate b = new Coordinate(1, 0);
+        var a = new Coordinate(0, 0);
+        var b = new Coordinate(1, 0);
 
         List<RoadSegment> segments = List.of(
                 floodedSegment("f1", a, b)

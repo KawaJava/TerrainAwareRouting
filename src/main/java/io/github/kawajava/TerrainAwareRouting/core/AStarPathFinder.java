@@ -4,6 +4,7 @@ import io.github.kawajava.TerrainAwareRouting.domain.RoadSegment;
 import org.locationtech.jts.geom.Coordinate;
 
 import java.util.*;
+
 public class AStarPathFinder implements PathFindingStrategy {
 
     private record Node(Coordinate coord, double g, double h, Node parent) {

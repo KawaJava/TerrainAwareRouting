@@ -1,6 +1,5 @@
 package io.github.kawajava.TerrainAwareRouting.service;
 
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.kawajava.TerrainAwareRouting.domain.RoadSegment;
@@ -16,6 +15,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -26,8 +26,7 @@ public class FloodOverlayService {
     private final GeometryFactory geometryFactory = new GeometryFactory();
 
     @Value("${app.flood.backend-url}")
-     String floodBackendUrl;
-
+    String floodBackendUrl;
     List<Polygon> floodZones;
 
     public void loadFloodZones() {

@@ -1,12 +1,12 @@
 package io.github.kawajava.TerrainAwareRouting.controller;
 
-
 import io.github.kawajava.TerrainAwareRouting.controller.dto.RouteResponse;
 import io.github.kawajava.TerrainAwareRouting.controller.dto.RouteStep;
 import io.github.kawajava.TerrainAwareRouting.domain.RoadSegment;
 import io.github.kawajava.TerrainAwareRouting.infrastructure.GeoJsonRoadLoader;
 import io.github.kawajava.TerrainAwareRouting.service.FloodOverlayService;
 import io.github.kawajava.TerrainAwareRouting.service.RouteService;
+import lombok.RequiredArgsConstructor;
 import org.locationtech.jts.geom.Coordinate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,21 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class RouteController {
 
     private final GeoJsonRoadLoader loader;
     private final FloodOverlayService floodService;
     private final RouteService routing;
-
-    public RouteController(
-            GeoJsonRoadLoader loader,
-            FloodOverlayService floodService,
-            RouteService routing
-    ) {
-        this.loader = loader;
-        this.floodService = floodService;
-        this.routing = routing;
-    }
 
     @GetMapping("/api/evac/route")
     public ResponseEntity<RouteResponse> route(@RequestParam String start, @RequestParam String end) {
